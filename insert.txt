@@ -1,0 +1,42 @@
+namespace ConsoleApp5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 21, 32, 34, 43, 57, 83 };
+            Console.WriteLine("Kohne array:");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+                
+            }
+            Console.WriteLine("");
+            InsertArray(ref arr, 87, 93, 99);
+        }
+        static void InsertArray(ref int[] arr, params int[] deyer)
+        {
+            int[] arr2 = new int[arr.Length + deyer.Length];
+            arr.CopyTo(arr2, 0);
+            for (int i = 0; i < deyer.Length; i++)
+            {
+                arr2[arr.Length + i] = deyer[i];
+            }
+            Console.WriteLine("Yeni array:");
+           
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                Console.Write(arr2[i] + " ");
+                
+            }
+            arr2 = arr;
+            Console.WriteLine("");
+            Console.WriteLine("Kohne qiymetine qaytarildi:");          
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                Console.Write(arr2[i] + " ");
+                
+            }
+        }
+    }
+}
